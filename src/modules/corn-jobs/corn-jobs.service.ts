@@ -17,13 +17,19 @@ export class CornJobsService {
 
      async callStoreProcedure() : Promise<any>{
         
-        return await this.DB.query(`SELECT * FROM get_and_gen_schedule_task_notification()`)
+        const response = await this.DB.query(`SELECT * FROM get_and_gen_schedule_task_notification()`)
+        
+        if(response && response[0].length) {
+           winstonLog.log('info',` Response : %o `, response[0])
+        }
+        
     }
 
     //@Timeout(5000)
-    @Cron(CronExpression.EVERY_MINUTE)
+    //@Cron(CronExpression.EVERY_MINUTE )
+    @Cron('5 * * * * *')
     async handleFaqCron() {
-        winstonLog.log('info',`********** Running Corn In EVERY_MINUTE ********** `)
+        winstonLog.log('info',`********** Running Corn when current second is 5 ********** `)
         this.callStoreProcedure()
     }
 
