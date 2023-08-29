@@ -8,7 +8,8 @@ export interface IDatabaseConfigAttributes {
     dialect?: string;
     urlDatabase?: string;
     define ?: object,
-    logging ? : boolean
+    logging ? : boolean,
+    timezone ?: string
 }
 
 export interface IDatabaseConfig {

@@ -12,7 +12,8 @@ export const databaseConfig: IDatabaseConfig = {
         define: {
             timestamps: false
           },
-          logging: false
+          logging: true,
+          timezone: "+06:00"
     },
     test: {
         username: process.env.DB_USER,
@@ -24,7 +25,8 @@ export const databaseConfig: IDatabaseConfig = {
         define: {
             timestamps: false
           },
-          logging: false
+          logging: true,
+          timezone: "+06:00"
     },
     production: {
         username: process.env.DB_USER,
@@ -36,6 +38,7 @@ export const databaseConfig: IDatabaseConfig = {
         define: {
             timestamps: false
           },
-          logging: false
+          logging: true,
+          timezone: "+06:00"
     },
 };
